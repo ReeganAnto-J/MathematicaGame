@@ -1,0 +1,16 @@
+﻿<Window x:Class="MathematicaGame.Window3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MathematicaGame"
+        mc:Ignorable="d"
+        Title="Leaderboard" Height="720" Width="1280"
+         WindowState="Maximized"
+        WindowStyle="None">
+    <Grid>
+        <Label Content="Leaderboard" HorizontalAlignment="Center" Margin="0,65,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Button Content="Back" HorizontalAlignment="Center" Margin="0,575,0,0" VerticalAlignment="Top" FontSize="42" Click="Button_Click"/>
+
+    </Grid>
+</Window>
