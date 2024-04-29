@@ -63,29 +63,6 @@
                     }
                 }
             }
-            else if (x <= 50)
-            {
-                int mod, st;
-                if (x <= 30) mod = 301; else if (x <= 40) mod = 601; else mod = 1001;
-                if (x <= 30) st = 11; else st = 100;
-                int v = (random.Next(st, mod));
-                ans = v; eqn += Convert.ToString(v);
-                for (int i = 0; i < 2; i++)
-                {
-                    v = (random.Next(st, mod));
-                    int sign = random.Next(0, 100);
-                    if (sign < 60)
-                    {
-                        ans += v;
-                        eqn += '+' + Convert.ToString(v);
-                    }
-                    else
-                    {
-                        ans -= v;
-                        eqn += '-' + Convert.ToString(v);
-                    }
-                }
-            }
             else if (x <= 75)
             {
                 int mod, st;
@@ -182,7 +159,7 @@
                     int pointOfDiv = random.Next(0, 2); // To check if first or second value must be divided
                     if (pointOfDiv == 0)
                     {
-                        int d = (random.Next(1, 10));
+                        int d = (random.Next(2, 10));
                         int v = d * (random.Next(st, mod));
                         ans = v / d;
                         eqn += Convert.ToString(v) + "/" + Convert.ToString(d);
@@ -204,7 +181,7 @@
                         int v = (random.Next(st, mod));
                         ans = v;
                         eqn += Convert.ToString(v);
-                        int d = (random.Next(1, 10));
+                        int d = (random.Next(2, 10));
                         v = d * (random.Next(st, mod));                       
                         int sign = random.Next(0, 2);
                         if (sign == 0)

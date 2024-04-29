@@ -29,8 +29,11 @@ namespace MathematicaGame
         public Window2()
         {
             InitializeComponent();
+            Name.Visibility = Visibility.Collapsed;
+            Enter.Visibility = Visibility.Collapsed;
             this.DataContext = this;
             timeLeft = true;
+            Points.Content = Convert.ToString(score);
             timerThread = new Thread(TimerManager);
             NextRound();
             timerThread.Start();
@@ -54,6 +57,7 @@ namespace MathematicaGame
         public void NextRound()
         {
             // Getting the equation and expected answer
+            if (round >= 101) GameOver();
             GameLogic.time = 20;
             GameLogic gameLogic = new GameLogic();
             string[] eqnAns = gameLogic.GenerateEquation(round);
@@ -61,6 +65,7 @@ namespace MathematicaGame
             expectedAnswer = eqnAns[1];
             Score.Content = Convert.ToString(round);
             Equation.Content = equation;
+            Answer.Text = Convert.ToString(expectedAnswer);
         }
 
         // Submit
@@ -76,18 +81,44 @@ namespace MathematicaGame
                     score += GameLogic.time * round;
                     round++;
                     NextRound();
-                    Answer.Text = "";
+                    //Answer.Text = "";
+                    Points.Content = Convert.ToString(score);
                 }
                 else GameOver();
             }
-            else Answer.Text = "";
+            //else Answer.Text = "";
+        }
+
+        private void Enter_Click(object sender, RoutedEventArgs e)
+        {
+            Leaderboard leaderboard = new Leaderboard();
+            leaderboard.UpdateScore(score, Name.Text);
+            Window3 window = new Window3();
+            window.Show();
+            this.Close();
         }
 
         private void GameOver()
         {
-            Window1 window1 = new Window1();
-            window1.Show();
-            this.Close();
+            Leaderboard leaderboard = new Leaderboard();
+            if(score > leaderboard.ReturnMinimumValue())
+            {
+                Submit.Visibility = Visibility.Collapsed;
+                GiveUp.Visibility = Visibility.Collapsed;
+                Round.Visibility = Visibility.Collapsed;
+                Score.Visibility = Visibility.Collapsed;
+                Equation.Visibility = Visibility.Collapsed;
+                Answer.Visibility = Visibility.Collapsed;
+                Name.Visibility = Visibility.Visible;
+                Enter.Visibility = Visibility.Visible;
+                Points.Content = Convert.ToString(score);
+            }
+            else
+            {
+                Window1 window1 = new Window1();
+                window1.Show();
+                this.Close();
+            }
         }
 
         // Give Up

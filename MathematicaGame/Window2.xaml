@@ -12,8 +12,11 @@
         <Button x:Name="GiveUp" Content="GiveUp" HorizontalAlignment="Left" Margin="747,495,0,0" VerticalAlignment="Top" FontSize="42" Click="Button_Click_1"/>
         <Label x:Name="Round" Content="Round:" HorizontalAlignment="Left" Margin="531,32,0,0" VerticalAlignment="Top" FontSize="42"/>
         <Label x:Name="Score" Content="0" HorizontalAlignment="Left" Margin="693,32,0,0" VerticalAlignment="Top" FontSize="42"/>
-        <Label x:Name="Equation" Content="EQUATION" HorizontalAlignment="Center" Margin="0,164,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name="Equation" Content="EQUATION" HorizontalAlignment="Center" Margin="0,234,0,0" VerticalAlignment="Top" FontSize="42"/>
         <TextBox x:Name="Answer" HorizontalAlignment="Center" Margin="0,340,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="292" FontSize="42" TextAlignment="Center"/>
+        <TextBox x:Name ="Name" MaxLength="3" HorizontalAlignment="Left" Margin="453,352,0,0" TextWrapping="Wrap" Text="NAM" VerticalAlignment="Top" Width="120" FontSize="42"/>
+        <Button x:Name ="Enter" Content="Enter" HorizontalAlignment="Left" Margin="716,352,0,0" VerticalAlignment="Top" FontSize="42" Click="Enter_Click"/>
+        <Label x:Name ="Points" Content="Score" HorizontalAlignment="Center" Margin="0,131,0,0" VerticalAlignment="Top" FontSize="42"/>
 
 
     </Grid>
