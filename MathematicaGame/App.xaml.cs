@@ -7,8 +7,10 @@ namespace MathematicaGame
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
+    
     public partial class App : Application
     {
+        public const string leaderboardPath = @"../../../Score.csv";
     }
 
 }

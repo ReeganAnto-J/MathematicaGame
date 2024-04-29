@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System;
+using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,6 +22,22 @@ namespace MathematicaGame
         public MainWindow()
         {
             InitializeComponent();
+            InitalizeLeaderboard();
+        }
+
+        private void InitalizeLeaderboard()
+        {
+            if (!File.Exists(App.leaderboardPath))
+            {                
+                using (StreamWriter sw = new StreamWriter(App.leaderboardPath)) { };
+                using (StreamWriter writer = new StreamWriter(App.leaderboardPath))
+                {
+                    for(int i = 0; i<10; i++)
+                    {
+                        writer.WriteLine("NAN,0");
+                    }
+                }
+            }
         }
 
         //Start Button

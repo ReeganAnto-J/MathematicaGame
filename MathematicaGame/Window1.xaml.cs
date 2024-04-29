@@ -29,9 +29,8 @@ namespace MathematicaGame
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Window2 window2 = new Window2(); // Play window
-            this.Hide();
-            window2.ShowDialog();
-            this.Show();
+            window2.Show();
+            this.Close();
         }
 
         // Leaderboard

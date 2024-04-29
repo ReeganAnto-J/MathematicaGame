@@ -22,6 +22,7 @@ namespace MathematicaGame
         public Window3()
         {
             InitializeComponent();
+            Leaderboard leaderboard = new Leaderboard();
         }
 
         // Back

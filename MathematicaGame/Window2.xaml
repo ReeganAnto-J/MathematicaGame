@@ -6,15 +6,14 @@
         xmlns:local="clr-namespace:MathematicaGame"
         mc:Ignorable="d"
         Title="Game" Height="720" Width="1280"
-         WindowState="Maximized"
-        WindowStyle="None">
+         WindowState="Maximized">
     <Grid>
-        <Button Content="Submit" HorizontalAlignment="Left" Margin="419,563,0,0" VerticalAlignment="Top" FontSize="42" Click="Button_Click"/>
-        <Button Content="GiveUp" HorizontalAlignment="Left" Margin="753,563,0,0" VerticalAlignment="Top" FontSize="42" Click="Button_Click_1"/>
-        <Label Content="Round:" HorizontalAlignment="Left" Margin="531,32,0,0" VerticalAlignment="Top" FontSize="42"/>
-        <Label Content="0" HorizontalAlignment="Left" Margin="693,32,0,0" VerticalAlignment="Top" FontSize="42"/>
-        <Label Content="EQUATION " HorizontalAlignment="Center" Margin="0,212,0,0" VerticalAlignment="Top" FontSize="42"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,384,0,0" TextWrapping="Wrap" Text="ANS" VerticalAlignment="Top" Width="292" FontSize="42" TextAlignment="Center"/>
+        <Button x:Name="Submit" Content="Submit" HorizontalAlignment="Left" Margin="419,495,0,0" VerticalAlignment="Top" FontSize="42" Click="Button_Click"/>
+        <Button x:Name="GiveUp" Content="GiveUp" HorizontalAlignment="Left" Margin="747,495,0,0" VerticalAlignment="Top" FontSize="42" Click="Button_Click_1"/>
+        <Label x:Name="Round" Content="Round:" HorizontalAlignment="Left" Margin="531,32,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name="Score" Content="0" HorizontalAlignment="Left" Margin="693,32,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name="Equation" Content="EQUATION" HorizontalAlignment="Center" Margin="0,164,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <TextBox x:Name="Answer" HorizontalAlignment="Center" Margin="0,340,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="292" FontSize="42" TextAlignment="Center"/>
 
 
     </Grid>

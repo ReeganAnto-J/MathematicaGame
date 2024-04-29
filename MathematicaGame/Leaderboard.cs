@@ -9,15 +9,24 @@ namespace MathematicaGame
 {
     class Leaderboard
     {
-        string file = "Score.csv";
-        string tempFilePath;
-        Leaderboard() 
-        { 
-        }
 
-        public void UpdateScore()
+        public void UpdateScore(int score, string name)
         {
-            tempFilePath = Path.GetTempFileName();
+            
+        }
+        public SortedDictionary<int, string> ReturnLeaderboard()
+        {
+            string[] score;
+            SortedDictionary<int, string> board = new SortedDictionary<int, string>();
+            using(StreamReader reader = new StreamReader(App.leaderboardPath))
+            {
+                for(int i = 0; i<10; i++)
+                {
+                    score = reader.ReadLine().Split(',');
+                    board[Convert.ToInt32(score[1])] = score[0];
+                }
+            }
+            return board;
         }
     }
 }

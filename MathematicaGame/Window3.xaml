@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:MathematicaGame"
         mc:Ignorable="d"
         Title="Leaderboard" Height="720" Width="1280"
-         WindowState="Maximized"
-        WindowStyle="None">
+         WindowState="Maximized">
     <Grid>
-        <Label Content="Leaderboard" HorizontalAlignment="Center" Margin="0,65,0,0" VerticalAlignment="Top" FontSize="42"/>
-        <Button Content="Back" HorizontalAlignment="Center" Margin="0,575,0,0" VerticalAlignment="Top" FontSize="42" Click="Button_Click"/>
+        <Label Content="Leaderboard" HorizontalAlignment="Center" Margin="0,7,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Button Content="Back" HorizontalAlignment="Center" Margin="0,615,0,0" VerticalAlignment="Top" FontSize="42" Click="Button_Click"/>
+        <Label Content="NAM" HorizontalAlignment="Left" Margin="98,124,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label Content="Score" HorizontalAlignment="Left" Margin="310,124,0,0" VerticalAlignment="Top" FontSize="42"/>
 
     </Grid>
 </Window>
