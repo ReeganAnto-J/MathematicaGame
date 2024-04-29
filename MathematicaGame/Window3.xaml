@@ -10,8 +10,25 @@
     <Grid>
         <Label Content="Leaderboard" HorizontalAlignment="Center" Margin="0,7,0,0" VerticalAlignment="Top" FontSize="42"/>
         <Button Content="Back" HorizontalAlignment="Center" Margin="0,615,0,0" VerticalAlignment="Top" FontSize="42" Click="Button_Click"/>
-        <Label Content="NAM" HorizontalAlignment="Left" Margin="98,124,0,0" VerticalAlignment="Top" FontSize="42"/>
-        <Label Content="Score" HorizontalAlignment="Left" Margin="310,124,0,0" VerticalAlignment="Top" FontSize="42"/>
-
+        <Label x:Name ="N1" Content="NAN" HorizontalAlignment="Left" Margin="98,124,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name ="S1" Content="0" HorizontalAlignment="Left" Margin="310,124,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name ="N2" Content="NAN" HorizontalAlignment="Left" Margin="98,225,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name ="S2" Content="0" HorizontalAlignment="Left" Margin="310,225,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name ="N3" Content="NAN" HorizontalAlignment="Left" Margin="98,0,0,0" VerticalAlignment="Center" FontSize="42"/>
+        <Label x:Name ="S3" Content="0" HorizontalAlignment="Left" Margin="310,0,0,0" VerticalAlignment="Center" FontSize="42"/>
+        <Label x:Name ="N4" Content="NAN" HorizontalAlignment="Left" Margin="98,406,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name ="S4" Content="0" HorizontalAlignment="Left" Margin="310,406,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name ="N5" Content="NAN" HorizontalAlignment="Left" Margin="98,497,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name ="S5" Content="0" HorizontalAlignment="Left" Margin="310,497,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name ="N6" Content="NAN" HorizontalAlignment="Left" Margin="798,124,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name ="S6" Content="0" HorizontalAlignment="Left" Margin="1040,124,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name ="N7" Content="NAN" HorizontalAlignment="Left" Margin="798,225,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name ="S7" Content="0" HorizontalAlignment="Left" Margin="1040,225,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name ="N8" Content="NAN" HorizontalAlignment="Left" Margin="798,0,0,0" VerticalAlignment="Center" FontSize="42"/>
+        <Label x:Name ="S8" Content="0" HorizontalAlignment="Left" Margin="1040,0,0,0" VerticalAlignment="Center" FontSize="42"/>
+        <Label x:Name ="N9" Content="NAN" HorizontalAlignment="Left" Margin="798,406,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name ="S9" Content="0" HorizontalAlignment="Left" Margin="1040,406,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name ="N10" Content="NAN" HorizontalAlignment="Left" Margin="798,497,0,0" VerticalAlignment="Top" FontSize="42"/>
+        <Label x:Name ="S10" Content="0" HorizontalAlignment="Left" Margin="1040,497,0,0" VerticalAlignment="Top" FontSize="42"/>
     </Grid>
 </Window>

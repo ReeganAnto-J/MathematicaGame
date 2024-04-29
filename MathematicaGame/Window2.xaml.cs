@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace MathematicaGame
 {
@@ -30,7 +32,10 @@ namespace MathematicaGame
         {
             InitializeComponent();
             this.DataContext = this;
+            Name.Visibility = Visibility.Collapsed;
+            Enter.Visibility = Visibility.Collapsed;            
             timeLeft = true;
+            Points.Content = Convert.ToString(score);
             timerThread = new Thread(TimerManager);
             NextRound();
             timerThread.Start();
@@ -54,19 +59,21 @@ namespace MathematicaGame
         public void NextRound()
         {
             // Getting the equation and expected answer
-            GameLogic.time = 20;
+            if (round >= 101) GameOver();
+            GameLogic.SetTimerValue(round);
             GameLogic gameLogic = new GameLogic();
             string[] eqnAns = gameLogic.GenerateEquation(round);
             equation = eqnAns[0];
             expectedAnswer = eqnAns[1];
             Score.Content = Convert.ToString(round);
             Equation.Content = equation;
+            //Answer.Text = Convert.ToString(expectedAnswer);
         }
 
         // Submit
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(!timeLeft) { GameOver(); }
+            if(!timeLeft) { Equation.Content = "Time Out"; GameOver(); }
             answerBox = Answer.Text;
             int userAnswer, actualAnswer = int.Parse(expectedAnswer);
             if (int.TryParse(answerBox, out userAnswer))
@@ -77,22 +84,52 @@ namespace MathematicaGame
                     round++;
                     NextRound();
                     Answer.Text = "";
+                    Points.Content = Convert.ToString(score);
                 }
-                else GameOver();
+                else
+                {
+                    Equation.Content = $"Wrong Answer Yours:{userAnswer} Actual:{actualAnswer}"; 
+                    GameOver();
+                }
             }
             else Answer.Text = "";
         }
 
+        private void Enter_Click(object sender, RoutedEventArgs e)
+        {
+            Leaderboard leaderboard = new Leaderboard();
+            leaderboard.UpdateScore(score, Name.Text);
+            Window3 window = new Window3();
+            window.Show();
+            this.Close();
+        }
+
         private void GameOver()
         {
-            Window1 window1 = new Window1();
-            window1.Show();
-            this.Close();
+            Leaderboard leaderboard = new Leaderboard();
+            if(score > leaderboard.ReturnMinimumValue())
+            {
+                Submit.Visibility = Visibility.Collapsed;
+                GiveUp.Visibility = Visibility.Collapsed;
+                Round.Visibility = Visibility.Collapsed;
+                Score.Visibility = Visibility.Collapsed;
+                Answer.Visibility = Visibility.Collapsed;
+                Name.Visibility = Visibility.Visible;
+                Enter.Visibility = Visibility.Visible;
+                Points.Content = Convert.ToString(score);
+            }
+            else
+            {
+                Window3 window = new Window3();
+                window.Show();
+                this.Close();
+            }
         }
 
         // Give Up
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            Equation.Content = "Gave Up";
             GameOver();
         }
     }
