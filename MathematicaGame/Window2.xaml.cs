@@ -31,6 +31,8 @@ namespace MathematicaGame
         public Window2()
         {
             InitializeComponent();
+            Name.Visibility = Visibility.Collapsed;
+            Enter.Visibility = Visibility.Collapsed;
             this.DataContext = this;
             Name.Visibility = Visibility.Collapsed;
             Enter.Visibility = Visibility.Collapsed;            
@@ -67,7 +69,6 @@ namespace MathematicaGame
             expectedAnswer = eqnAns[1];
             Score.Content = Convert.ToString(round);
             Equation.Content = equation;
-            //Answer.Text = Convert.ToString(expectedAnswer);
         }
 
         // Submit
@@ -84,13 +85,8 @@ namespace MathematicaGame
                     round++;
                     NextRound();
                     Answer.Text = "";
-                    Points.Content = Convert.ToString(score);
                 }
-                else
-                {
-                    Equation.Content = $"Wrong Answer Yours:{userAnswer} Actual:{actualAnswer}"; 
-                    GameOver();
-                }
+                else GameOver();
             }
             else Answer.Text = "";
         }
@@ -106,24 +102,9 @@ namespace MathematicaGame
 
         private void GameOver()
         {
-            Leaderboard leaderboard = new Leaderboard();
-            if(score > leaderboard.ReturnMinimumValue())
-            {
-                Submit.Visibility = Visibility.Collapsed;
-                GiveUp.Visibility = Visibility.Collapsed;
-                Round.Visibility = Visibility.Collapsed;
-                Score.Visibility = Visibility.Collapsed;
-                Answer.Visibility = Visibility.Collapsed;
-                Name.Visibility = Visibility.Visible;
-                Enter.Visibility = Visibility.Visible;
-                Points.Content = Convert.ToString(score);
-            }
-            else
-            {
-                Window3 window = new Window3();
-                window.Show();
-                this.Close();
-            }
+            Window1 window1 = new Window1();
+            window1.Show();
+            this.Close();
         }
 
         // Give Up
