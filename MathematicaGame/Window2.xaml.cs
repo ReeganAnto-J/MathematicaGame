@@ -117,8 +117,8 @@ namespace MathematicaGame
             }
             else
             {
-                Window1 window1 = new Window1();
-                window1.Show();
+                Window3 window3 = new Window3();
+                window3.Show();
                 this.Close();
             }
         }
