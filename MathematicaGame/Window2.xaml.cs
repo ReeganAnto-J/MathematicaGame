@@ -31,13 +31,12 @@ namespace MathematicaGame
         public Window2()
         {
             InitializeComponent();
-            Name.Visibility = Visibility.Collapsed;
-            Enter.Visibility = Visibility.Collapsed;
-            this.DataContext = this;
-            Name.Visibility = Visibility.Collapsed;
-            Enter.Visibility = Visibility.Collapsed;            
+            NameBox.Visibility = Visibility.Collapsed;
+            EnterButton.Visibility = Visibility.Collapsed;
+            this.DataContext = this;            
             timeLeft = true;
-            Points.Content = Convert.ToString(score);
+            RoundNumber.Content = Convert.ToString(round);
+            Score.Content = Convert.ToString(score);
             timerThread = new Thread(TimerManager);
             NextRound();
             timerThread.Start();
@@ -61,13 +60,14 @@ namespace MathematicaGame
         public void NextRound()
         {
             // Getting the equation and expected answer
+            Score.Content = Convert.ToString(score);
             if (round >= 101) GameOver();
             GameLogic.SetTimerValue(round);
             GameLogic gameLogic = new GameLogic();
             string[] eqnAns = gameLogic.GenerateEquation(round);
             equation = eqnAns[0];
             expectedAnswer = eqnAns[1];
-            Score.Content = Convert.ToString(round);
+            RoundNumber.Content = Convert.ToString(round);
             Equation.Content = equation;
         }
 
@@ -75,7 +75,7 @@ namespace MathematicaGame
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if(!timeLeft) { Equation.Content = "Time Out"; GameOver(); }
-            answerBox = Answer.Text;
+            answerBox = AnswerBox.Text;
             int userAnswer, actualAnswer = int.Parse(expectedAnswer);
             if (int.TryParse(answerBox, out userAnswer))
             {
@@ -84,17 +84,21 @@ namespace MathematicaGame
                     score += GameLogic.time * round;
                     round++;
                     NextRound();
-                    Answer.Text = "";
+                    AnswerBox.Text = "";
                 }
-                else GameOver();
+                else
+                {
+                    Equation.Content = $"Your Ans: {userAnswer} Expected Ans: {actualAnswer}";
+                    GameOver();
+                }
             }
-            else Answer.Text = "";
+            else AnswerBox.Text = "";
         }
 
         private void Enter_Click(object sender, RoutedEventArgs e)
         {
             Leaderboard leaderboard = new Leaderboard();
-            leaderboard.UpdateScore(score, Name.Text);
+            leaderboard.UpdateScore(score, NameBox.Text);
             Window3 window = new Window3();
             window.Show();
             this.Close();
@@ -102,9 +106,21 @@ namespace MathematicaGame
 
         private void GameOver()
         {
-            Window1 window1 = new Window1();
-            window1.Show();
-            this.Close();
+            Leaderboard leaderboard = new Leaderboard();
+            if(score > leaderboard.ReturnMinimumValue())
+            {
+                SubmitButton.Visibility = Visibility.Collapsed;
+                GiveUpButton.Visibility = Visibility.Collapsed;
+                AnswerBox.Visibility = Visibility.Collapsed;
+                NameBox.Visibility = Visibility.Visible;
+                EnterButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Window1 window1 = new Window1();
+                window1.Show();
+                this.Close();
+            }
         }
 
         // Give Up

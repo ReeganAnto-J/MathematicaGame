@@ -15,6 +15,10 @@ namespace MathematicaGame
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
+    /// Reegan Anto.J
+    /// Adhi College of Engineering and Technology (2021-2025)
+    /// LinkedIn https://www.linkedin.com/in/reegan-anto-j/
+    /// GitHub https://github.com/ReeganAnto-J/
     /// </summary>
     public partial class MainWindow : Window
     {
