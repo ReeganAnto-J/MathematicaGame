@@ -10,6 +10,13 @@ Any wrong answer will end the game, top 10 scores will be added to a leaderboard
 
 I am a third year student in the Artificial Intelligence and Data Science department of Adhi College of Engineering and Technology, and would appreciate any help you could provide me which could potentially improve my skills.
 
+#### Timer:
+- Round 1 - 10 : 20 seconds
+- Round 10 - 20 : 30 seconds
+- Round 20 - 50 : 45 seconds
+- Round 50 - 100 : 60 seconds
+The Game ends at round 100, at which point you should start improving your skills.
+
 #### Key skills I applied in this project (In my humble opinion):
 - Multi Threading
 - Windows Presentation Foundation
